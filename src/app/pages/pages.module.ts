@@ -9,7 +9,8 @@ import { FormsModule } from "@angular/forms"
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component'
 import { ChartsModule } from 'ng2-charts';
 
-import { DoughnutComponent } from '../components/doughnut/doughnut.component'
+import { DoughnutComponent } from '../components/doughnut/doughnut.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component'
 
 @NgModule({
     declarations:[       
@@ -18,7 +19,8 @@ import { DoughnutComponent } from '../components/doughnut/doughnut.component'
         ProgressComponent,
         Graficas1Component,
         IncrementadorComponent,
-        DoughnutComponent        
+        DoughnutComponent,
+        AccountSettingsComponent        
     ],
     exports:[        
         PagesComponent,
