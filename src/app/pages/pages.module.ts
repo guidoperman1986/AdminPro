@@ -13,10 +13,12 @@ import { DoughnutComponent } from '../components/doughnut/doughnut.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component'
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 //Pipe module
 import { PipesModule } from '../pipes/pipes.module';
-import { ProfileComponent } from './profile/profile.component';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -30,7 +32,9 @@ import { CommonModule } from '@angular/common';
         AccountSettingsComponent,
         PromesasComponent,
         RxjsComponent,
-        ProfileComponent        
+        ProfileComponent,
+        UsuariosComponent,
+        ModalUploadComponent
     ],
     exports:[        
         PagesComponent,
