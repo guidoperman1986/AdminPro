@@ -1,0 +1,67 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input type="text" class="form-control" placeholder="Buscar hospital" #input (keyup)="buscarHospital(input.value)">
+            
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="cargando">
+
+    <div class="col-sm-12">
+        <div class="alert alert-warning text-center">
+            <strong>Cargando...</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row animated fadeIn" *ngIf="!cargando">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h3 class="card-title">Hospitales registrados ( <small>{{totalRegistros}}</small> )</h3>
+
+                <button class="btn btn-primary float-right" (click)="mostrarSweet()"><i class="fa fa-plus"> Crear Hospital</i></button>
+
+                <table class="table table-hover">
+                    <thead>
+                        <th>Imagen</th>
+                        <th>Hospital</th>                        
+                        <th></th>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let hospital of hospitales">
+                            <td class="img-70"><img [src]="hospital.img | imagen:'hospital'" class="img-50 img-circle pointer" alt="" (click)="mostrarModal(hospital._id)"></td>                            
+                            <td><input type="text" [(ngModel)]="hospital.nombre" class="form-control"></td>                            
+                            <td>
+                                <button class="btn btn-primary" (click)="guardarHospital(hospital)">
+                                    <i class="fa fa-save"> {{hospital._id}}</i>
+                                </button>
+                                <button class="btn btn-danger ml-1" (click)="borrarHospital(hospital)">
+                                    <i class="fa fa-trash-o"> {{hospital._id}}</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button (click)="cambiarDesde(-5)" class="btn btn-secondary">Anteriores</button>
+                <button (click)="cambiarDesde(5)" class="btn btn-secondary ml-1">Siguientes</button>
+
+            </div>
+        </div>
+    </div>
+</div>

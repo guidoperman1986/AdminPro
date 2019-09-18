@@ -64,8 +64,6 @@ export class UsuariosComponent implements OnInit {
   }
 
   borrarUsuario(usuario:Usuario){
-    console.log(usuario)
-
     if (usuario._id === this.usuarioService.usuario._id){
       swal("No es posible borrar este usuario",'No es posible borrarse a si mismo','error');
       return;
