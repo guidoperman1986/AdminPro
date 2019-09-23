@@ -10,6 +10,8 @@ import { SubirArchivoService } from '../subirArchivo/subir-archivo.service';
 import { Observable } from 'rxjs';
 
 declare var swal:any;
+//import  swal  from 'sweetalert';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,25 @@ export class UsuarioService {
 
   constructor(public http:HttpClient, public router:Router, public subirArchivoService:SubirArchivoService){ 
       this.cargarStorage();
-   }
+  }
+
+  renuevaToken(){
+    let url = URL_SERVICIOS + '/login/renuevatoken';
+    url+='?token='+this.token;
+
+    return this.http.get(url)
+                .pipe(map((res:any)=>{
+                  this.token = res.token;
+                  localStorage.setItem('token',this.token);
+
+                  return true;
+                }),catchError((error:any)=>{
+                  this.logout()
+                  swal("No se pudo renovar el token","Renovacion de token incorrecta",'error')
+                  return Observable.throw(error);
+                })
+            )
+  }
 
   estaLogueado(){
     return (this.token.length > 5)? true:false;

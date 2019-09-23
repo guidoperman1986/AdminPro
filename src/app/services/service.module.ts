@@ -11,6 +11,7 @@ import { MedicoService } from './medico/medico.service';
 
 import { LoginGuardGuard } from './guards/login-guard.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { VerificaTokenGuard } from './guards/verifica-token.guard';
 
 @NgModule({
   declarations: [],
@@ -28,7 +29,8 @@ import { AdminGuard } from './guards/admin.guard';
     ModalUploadService,
     HospitalService,
     MedicoService,
-    AdminGuard
+    AdminGuard,
+    VerificaTokenGuard
   ]
 })
 export class ServiceModule { }
